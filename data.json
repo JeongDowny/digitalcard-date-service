@@ -1,0 +1,32 @@
+[
+    {
+        "name": "문효재",
+        "gender": "남 ",
+        "age": "23",
+        "major": "컴퓨터공학과",
+        "mbti": "ISTP",
+        "hobby": "축구",
+        "contact": "01054959050",
+        "create_date": "2024-10-07 18:29:39"
+    },
+    {
+        "name": "문효재",
+        "gender": "남 ",
+        "age": "23",
+        "major": "컴퓨터공학과",
+        "mbti": "ISTP",
+        "hobby": "축구",
+        "contact": "01054959050",
+        "create_date": "2024-10-07 18:32:43"
+    },
+    {
+        "name": "문효재",
+        "gender": "남 ",
+        "age": "25",
+        "major": "컴퓨터공학과",
+        "mbti": "ISTP",
+        "hobby": "축구",
+        "contact": "01054959050",
+        "create_date": "2024-10-07 18:32:48"
+    }
+]
