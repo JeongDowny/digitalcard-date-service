@@ -22,3 +22,4 @@ class Profile(db.Model):
     mbti = db.Column(db.String(4), nullable=False)
     hobbies = db.Column(db.String(200), nullable=True)
     phone = db.Column(db.String(15), nullable=False)
+    create_date = db.Column(db.DateTime(0))
