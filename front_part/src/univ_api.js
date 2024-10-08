@@ -22,31 +22,6 @@ document.querySelector('.univ__checkButton').addEventListener('click', async () 
   }
 });
 
-// 이메일 전송
-document.querySelector('.email__checkButton').addEventListener('click', async () => {
-  const email = document.querySelector('.email__input').value;
-  const schoolName = document.querySelector('.univ__input').value;
-
-  const response = await fetch(`${API_BASE_URL}/certify`, {
-    method: 'POST',
-    headers: { 
-      'Content-Type': 'application/json',
-    },
-    body: JSON.stringify({
-      key: API_KEY,
-      email: email,
-      univName: schoolName,
-      univ_check: true
-    })
-  });
-
-  const result = await response.json();
-  if (result.success) {
-    alert("이메일 전송 성공! 이메일에서 인증코드를 확인하세요.");
-  } else {
-    alert("이메일 전송에 실패했습니다.");
-  }
-});
 
 // 인증번호 제출
 document.querySelector('.prove__checkButton').addEventListener('click', async () => {
@@ -71,7 +46,7 @@ document.querySelector('.prove__checkButton').addEventListener('click', async ()
   if (result.success) {
     alert("인증 성공!");
     // 인증 성공 시, 체크 아이콘의 색상을 초록색으로 변경하고 페이지 이동
-    const checkIcon = document.querySelector('.check-icon');
+    let checkIcon = document.querySelector('.check-icon');
     checkIcon.style.color = 'green';
     setTimeout(() => {
       window.location.href = '../card_writting.html'; // 다음 페이지의 URL로 변경
@@ -81,11 +56,11 @@ document.querySelector('.prove__checkButton').addEventListener('click', async ()
   }
 });
 
-// 인증된 이메일 확인
-document.querySelector('.status__checkButton').addEventListener('click', async () => {
+// 선 인증된 이메일 확인 후, 맞다면 바로 작성사이트로 이동 아니라면 이메일 코드 젅송
+document.querySelector('.email__checkButton').addEventListener('click', async () => {
   const email = document.querySelector('.email__input').value;
 
-  const response = await fetch(`${API_BASE_URL}/status`, {
+    let response = await fetch(`${API_BASE_URL}/status`, {
     method: 'POST',
     headers: { 
       'Content-Type': 'application/json',
@@ -96,11 +71,36 @@ document.querySelector('.status__checkButton').addEventListener('click', async (
     })
   });
 
-  const result = await response.json();
+  let result = await response.json();
   if (result.success) {
     alert("이메일이 인증되었습니다.");
+    let checkIcon = document.querySelector('.check-icon');
+    checkIcon.style.color = 'green';
+    setTimeout(() => {
+      window.location.href = '../card_writting.html'; // 다음 페이지의 URL로 변경
+    }, 2000); // 2초 후에 페이지 이동
   } else {
     alert("인증되지 않은 이메일입니다.");
+  const schoolName = document.querySelector('.univ__input').value;
+  response = await fetch(`${API_BASE_URL}/certify`, {
+    method: 'POST',
+    headers: { 
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({
+      key: API_KEY,
+      email: email,
+      univName: schoolName,
+      univ_check: true
+    })
+  });
+
+  result = await response.json();
+  if (result.success) {
+    alert("이메일 전송 성공! 이메일에서 인증코드를 확인하세요.");
+  } else {
+    alert("이메일 전송에 실패했습니다.");
+  }
   }
 });
 
