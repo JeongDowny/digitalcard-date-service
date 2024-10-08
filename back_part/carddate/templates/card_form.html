@@ -1,10 +1,104 @@
-<form action="/submit" method="POST">
-    <input type="text" name="gender" placeholder="성별">
-    <input type="text" name="age" placeholder="나이">
-    <input type="text" name="major" placeholder="학과">
-    <input type="text" name="mbti" placeholder="MBTI">
-    <input type="text" name="hobby" placeholder="취미">
-    <input type="text" name="name" placeholder="이름">
-    <input type="text" name="contact" placeholder="연락처">
-    <button type="submit">제출</button>
-</form>
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Your Name">
+        <meta name="description" content="User Information Form">
+        <title>User Information Form</title>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+                background-color: #f2f2f2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                height: 100vh;
+                margin: 0;
+            }
+
+            .form-container {
+                background-color: white;
+                padding: 20px;
+                border-radius: 8px;
+                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+                width: 400px;
+            }
+
+            .form-container h2 {
+                text-align: center;
+                margin-bottom: 20px;
+            }
+
+            .form-container label {
+                display: block;
+                margin-bottom: 8px;
+                font-weight: bold;
+            }
+
+            .form-container input[type="text"],
+            .form-container input[type="number"],
+            .form-container input[type="tel"],
+            .form-container select {
+                width: 100%;
+                padding: 8px;
+                margin-bottom: 15px;
+                border: 1px solid #ccc;
+                border-radius: 4px;
+                box-sizing: border-box;
+            }
+
+            .form-container button {
+                width: 100%;
+                background-color: #4CAF50;
+                color: white;
+                padding: 10px;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+            }
+
+            .form-container button:hover {
+                background-color: #45a049;
+            }
+        </style>
+    </head>
+
+    <body>
+
+        <div class="form-container">
+            <h2>Personal Information</h2>
+            <form action="/submit" method="POST">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" placeholder="Your name.." required>
+
+                <label for="gender">Gender</label>
+                <select id="gender" name="gender" required>
+                    <option value="male">Male</option>
+                    <option value="female">Female</option>
+                    <option value="other">Other</option>
+                </select>
+
+                <label for="age">Age</label>
+                <input type="number" id="age" name="age" placeholder="Your age.." required>
+
+                <label for="department">Department</label>
+                <input type="text" id="department" name="department" placeholder="Your department.." required>
+
+                <label for="mbti">MBTI</label>
+                <input type="text" id="mbti" name="mbti" placeholder="Your MBTI.." required>
+
+                <label for="hobbies">Hobbies</label>
+                <input type="text" id="hobbies" name="hobbies" placeholder="Your hobbies.." required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your contact number.." required>
+
+                <button type="submit">Submit</button>
+            </form>
+        </div>
+
+    </body>
+
+</html>

@@ -12,3 +12,13 @@ class Answer(db.Model):
     question = db.relationship('Question', backref=db.backref('answer_set', cascade='all, delete-orphan'))
     content = db.Column(db.Text(), nullable=False)
     create_date = db.Column(db.DateTime(), nullable=False)
+
+class Profile(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), nullable=False) 
+    gender = db.Column(db.String(10), nullable=False)
+    age = db.Column(db.Integer, nullable=False)    
+    major = db.Column(db.String(100), nullable=False)
+    mbti = db.Column(db.String(4), nullable=False)
+    hobbies = db.Column(db.String(200), nullable=True)
+    phone = db.Column(db.String(15), nullable=False)
