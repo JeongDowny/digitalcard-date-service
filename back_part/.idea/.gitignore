@@ -3,3 +3,4 @@
 /workspace.xml
 *.py[cod]
 **/.pyc
+**/.DS_Store
