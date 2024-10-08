@@ -1,6 +1,5 @@
 from flask import Blueprint, url_for, flash, request, session, render_template
 import requests
-import json
 from werkzeug.utils import redirect
 
 
@@ -12,6 +11,7 @@ bp = Blueprint('login', __name__, url_prefix='/login')
 # 학교 인증 페이지
 @bp.route('/')
 def index():
+    #clear_user('daun5535@seoultech.ac.kr')
     return render_template('login.html')
 
 # 학교명 확인
@@ -28,7 +28,7 @@ def check_univ():
     result = response.json()
     if result.get('success'):
         session['univ_name'] = univ_name
-        flash('학교 확인 성공', category='success')
+        flash('유효한 학교명입니다.', category='success')
         return redirect(url_for('login.index', univ_name=univ_name))
     else:
         flash('유효한 학교명이 아닙니다.', category='error')
@@ -50,13 +50,18 @@ def send_email():
 
     result = response.json()
     if result.get('success'):
+        session['email'] = email
         flash('이메일 전송 성공, 이메일에서 인증코드를 확인하세요.', category='success')
-        print(email)
-        print(univ_name)
         return redirect(url_for('login.index', univ_name=univ_name, email=email))
     else:
-        flash('이메일 전송에 실패했습니다.', category='error')
-        return redirect(url_for('login.index', univ_name=univ_name))
+        if check_status(email):
+            return redirect(url_for('card.index'))
+        else:
+            flash('이메일 전송에 실패했습니다.', category='error')
+            print('email: ', email)
+            print('univ_name: ', univ_name)
+            print(result)
+            return redirect(url_for('login.index', univ_name=univ_name))
     
 @bp.route('/verify_code', methods=('POST', ))
 def verify_code():
@@ -75,9 +80,12 @@ def verify_code():
     
     result = response.json()
     if result.get('success'):
-        return redirect(url_for('card_form'))
+        return redirect(url_for('card.index'))
     else:
         flash('유효한 인증번호가 아닙니다.', category='error')
+        print(result.get('message'))
+        print("email: ", email)
+        print("univ_name: ", univ_name)
         return redirect(url_for('login.index', univ_name=univ_name, email=email))
     
 def clear_user(email):
@@ -90,13 +98,13 @@ def clear_user(email):
 
     result = response.json()
     if result.get('success'):
-        print('인증된 유저 초기화 성공')
+        print(email, '유저 초기화 성공')
         return print_userlist();
     else:
         return print('인증된 유저 초기화 실패')
 
 def print_userlist():
-    response = requests.post(f'{API_BASE_URL}/clear', headers={
+    response = requests.post(f'{API_BASE_URL}/certifiedlist', headers={
         'Content-Type': 'application/json'
     }, json=({
         'key': API_KEY
@@ -104,7 +112,21 @@ def print_userlist():
 
     result = response.json()
     if result.get('success'):
-        return print(result['data'])
+        return print(result.get('data'))
     else:
         return print('인증된 유저 리스트 불러오기 실패')
+    
+def check_status(email):
+    response = requests.post(f'{API_BASE_URL}/status', headers={
+        'Content-Type': 'application/json'
+    }, json=({
+        'key': API_KEY,
+        'email': email
+    }))
 
+    result = response.json()
+    if result.get('success'):
+        print(result.get('certified_date'))
+        return result.get('success')
+    else:
+        return result.get('success')
