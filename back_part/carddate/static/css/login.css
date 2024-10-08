@@ -1,126 +1,210 @@
 :root {
-    --color-lightPink: #FFD1DC;
-    --color-lightTeal: #D1FFF2;
-    --color-lightBaige: #F5F5DC;
-    --color-lightSkyBlue: #AEC6CF;
-    --color-black: #000000;
-    --color-white: #ffffff;
-    --color-primary: var(--color-lightPink);
-    --color-primary-variant: var(--color-lightTeal);
-    --color-accent: var(--color-lightBaige);
-    --color-accent-variant: var(--color-lightSkyBlue);
+  --color-coral: #FF6F61;
+  --color-peach: #FF8A80;
+  --color-gray: #F5F5F5;
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-primary: var(--color-white);
+  --color-primary-variant: var(--color-gray);
+  --color-accent: var(--color-coral);
+  --color-accent-variant: var(--color-peach);
 }
 
 /* common */
 
-*{
-    box-sizing: border-box;
-  }
-
-  body{
-    font-family: 'Playfair Display', sans-serif;
-    margin: 0; 
-    background-color: var(--color-accent-variant);
-    overflow: hidden;
-  }
-
-  a {
-    text-decoration: none;
-  }
-
-  ul,p,h1,h2,h3{
-    margin: 0;
-  }
-
-  ul {
-    list-style: none;
-    padding: 0;
-  }
-
-  button{
-    background-color: transparent;
-    outline: 0;
-    border: 0;
-  }
-
-  .max-container{
-    max-width: 1300px;
-    margin: auto; 
-  }
-
-  html {
-    scroll-behavior: smooth;
-  }
-
-  /* login form */
-  .login__container{
-    margin: 180px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: center;
-    border: 3px solid var(--color-primary-variant);
-    box-shadow: 0 20px 50px var(--color-primary);
-    background-color: var(--color-accent);
-  }
-
-  .login__title{
-    padding: 30px;
-    font-size: 2rem;
-  }
-  .univ__container, .email__container, .prove__container {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 10px;
+* {
+  box-sizing: border-box;
 }
 
-.univ__input, .email__input, .prove__input {
-    width: 300px; 
-    height: 40px; 
-    margin: 0; 
-    border: 1px solid var(--color-accent-variant);
-    border-radius: 5px 0 0 5px; 
-    cursor: text;
+body {
+  margin: 0;
+  background-color: var(--color-primary-variant);
+  overflow: hidden;
 }
 
-.univ__checkButton, .email__checkButton, .prove__checkButton {
-    height: 40px; 
-    width: 50px; 
-    background-color: var(--color-primary);
-    border: 1px solid var(--color-accent-variant);
-    border-radius: 0 5px 5px 0; 
-    cursor: pointer;
+a {
+  text-decoration: none;
 }
 
-.check__container{
-    display: flex;
-    align-items: center;
-    grid-gap: 5px;
-    margin-bottom: 20px;
+ul,
+p,
+h1,
+h2,
+h3 {
+  margin: 0;
 }
 
-.check-icon{
-    font-size: 20px;
-    color: red;
+ul {
+  list-style: none;
+  padding: 0;
 }
 
-.check__desc{
-    font-size: 1rem;
+button {
+  background-color: transparent;
+  outline: 0;
+  border: 0;
 }
 
-.login__detail{
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
+.max-container {
+  max-width: 1300px;
+  margin: auto;
 }
 
-.login__detail img{
-    width: 100px;
-    height: 100px;
+html {
+  scroll-behavior: smooth;
 }
 
-.login__detail p{
-    font-weight: bold;
-    font-style: italic;
+/* login form */
+.login__container {
+  margin: 180px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  border: 3px solid var(--color-black);
+  box-shadow: 0 20px 50px var(--color-primary);
+  background-color: lightgray;
+  position: relative;
+
+}
+
+.login__title {
+  padding: 30px;
+  font-size: 2rem;
+}
+
+.univ__container,
+.email__container,
+.prove__container {
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+.univ__input,
+.email__input,
+.prove__input {
+  width: 300px;
+  height: 40px;
+  margin: 0;
+  border: 1px solid var(--color-accent-variant);
+  border-radius: 5px 0 0 5px;
+  cursor: text;
+}
+
+.univ__checkButton,
+.email__checkButton,
+.prove__checkButton {
+  height: 40px;
+  width: 50px;
+  background-color: var(--color-primary);
+  border: 1px solid var(--color-accent-variant);
+  border-radius: 0 5px 5px 0;
+  cursor: pointer;
+}
+
+.email__container:hover::after {
+  display: block;
+  content: "이미 인증된 이메일은 입력 후 전송 시 바로 명함 작성 가능합니다.\A If you have already verified your email address you can immediately create a business card by entering and sending it.";
+  white-space: pre-wrap;
+  /* 줄바꿈을 위한 속성: \A */
+  position: absolute;
+  top: 170px;
+  left: 80px;
+  width: 200px;
+  background-color: #333;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 12px;
+  line-height: 1.4;
+  z-index: 100;
+}
+
+
+.check__container {
+  display: flex;
+  align-items: center;
+  grid-gap: 5px;
+  margin-bottom: 20px;
+}
+
+.check-icon {
+  font-size: 20px;
+  color: red;
+}
+
+.check__desc {
+  font-size: 1rem;
+}
+
+.login__detail {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 10px;
+}
+
+.login__detail img {
+  width: 100px;
+  height: 100px;
+}
+
+.login__detail p {
+  font-weight: bold;
+  font-style: italic;
+}
+
+/* text */
+.text-container {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+}
+
+@keyframes bounce {
+
+  0%,
+  100% {
+    transform: translateY(0);
+    /* 원래 위치 */
+  }
+
+  50% {
+    transform: translateY(20px);
+    /* 아래로 이동 */
+  }
+}
+
+.text1 {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: bounce 1.5s infinite;
+}
+
+.text2 {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: bounce 2s infinite;
+}
+
+.text3 {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: bounce 2.5s infinite;
+}
+
+.text4 {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: bounce 3s infinite;
+}
+
+.text5 {
+  font-size: 4rem;
+  font-weight: bold;
+  animation: bounce 3.5s infinite;
 }

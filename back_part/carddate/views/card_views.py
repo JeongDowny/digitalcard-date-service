@@ -45,8 +45,4 @@ def submit():
 
     # 리다이렉트와 플래시 메시지
     flash('제출해 주셔서 감사합니다!')
-    return redirect(url_for('thank_you'))
-
-@bp.route('/thank_you')
-def thank_you():
-    return render_template('thank_you.html')
+    return redirect(url_for('card.thank_you'))
