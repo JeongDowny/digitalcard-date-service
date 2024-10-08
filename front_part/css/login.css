@@ -51,97 +51,114 @@
   }
 
   /* login form */
-  .login__container{
-    margin: 180px;
+  body {
+    background: linear-gradient(135deg, #ffd1dc, #ffe4e1, #ffffff);
+    font-family: 'Arial', sans-serif;
     display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
+    justify-content: center;
     align-items: center;
-    border: 3px solid var(--color-black);
-    box-shadow: 0 20px 50px var(--color-primary);
-    background-color: lightgray;
-    position: relative;
+    height: 100vh;
+    margin: 0;
+}
 
-  }
-
-  .login__title{
+.login__container {
+    background-color: white;
     padding: 30px;
-    font-size: 2rem;
-  }
-  .univ__container, .email__container, .prove__container {
-    display: flex; 
-    align-items: center; 
-    margin-bottom: 10px;
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 400px;
+    text-align: center;
 }
 
-.univ__input, .email__input, .prove__input {
-    width: 300px; 
-    height: 40px; 
-    margin: 0; 
-    border: 1px solid var(--color-accent-variant);
-    border-radius: 5px 0 0 5px; 
-    cursor: text;
+.login__title {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    color: #333;
 }
 
-.univ__checkButton, .email__checkButton, .prove__checkButton {
-    height: 40px; 
-    width: 50px; 
-    background-color: var(--color-primary);
-    border: 1px solid var(--color-accent-variant);
-    border-radius: 0 5px 5px 0; 
-    cursor: pointer;
-}
-
-.email__container:hover::after {
-  display: block;
-  content: "이미 인증된 이메일은 입력 후 전송 시 바로 명함 작성 가능합니다.\A If you have already verified your email address you can immediately create a business card by entering and sending it.";
-  white-space: pre-wrap; /* 줄바꿈을 위한 속성: \A */
-  position: absolute;
-  top: 170px; 
-  left: 80px;
-  width: 200px; 
-  background-color: #333; 
-  color: #fff; 
-  padding: 10px; 
-  border-radius: 5px; 
-  font-size: 12px;
-  line-height: 1.4;
-  z-index: 100; 
-}
-
-
-.check__container{
+.univ__container, 
+.email__container, 
+.prove__container {
     display: flex;
+    justify-content: space-between;
     align-items: center;
-    grid-gap: 5px;
     margin-bottom: 20px;
 }
 
-.check-icon{
-    font-size: 20px;
-    color: red;
+.univ__input, 
+.email__input, 
+.prove__input {
+    width: 75%;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 14px;
 }
 
-.check__desc{
-    font-size: 1rem;
+.univ__checkButton, 
+.email__checkButton, 
+.prove__checkButton {
+    background-color: #3A99D9;
+    border: none;
+    color: white;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
 }
 
-.login__detail{
+.univ__checkButton:hover, 
+.email__checkButton:hover, 
+.prove__checkButton:hover {
+    background-color: #2a6ca7;
+}
+
+.check__container {
+    margin: 20px 0;
     display: flex;
     align-items: center;
-    gap: 5px;
-    margin-bottom: 10px;
+    justify-content: center;
 }
 
-.login__detail img{
-    width: 100px;
-    height: 100px;
+.check-icon {
+    color: red;
+    font-size: 24px;
+    margin-right: 10px;
 }
 
-.login__detail p{
-    font-weight: bold;
-    font-style: italic;
+.check__desc {
+    font-size: 16px;
+    color: var(--color-black);
 }
+
+.login__detail {
+    margin-top: 30px;
+}
+
+.login__detail p {
+    font-size: 14px;
+    color: #555;
+}
+
+.login__button {
+    background-color: #E54067;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 12px 0;
+    width: 100%;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.login__button:hover {
+    background-color: #d13b5a;
+}
+
+ 
 
 /* text */
 .text-container{
