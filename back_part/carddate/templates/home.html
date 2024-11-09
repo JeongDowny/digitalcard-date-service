@@ -16,6 +16,7 @@
         <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
         <script src="../static/src/fortune.js" type="module"></script>
         <script src="../static/src/active.js" type="module"></script>
+        <script src="../static/src/arrowUp.js" type="module"></script>
         <link rel="stylesheet" href="../static/css/home.css">
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -30,8 +31,8 @@
     <body>
         <header id="header">
             <div class="header__dev-container">
-                <img class="header__img" src="../static/assets/seoulTechLogo.svg" alt="학교로고">
-                <h1 class="header__title">명함소개팅 ❤️ </h1>
+                <img class="header__img" src="../static/assets/teamLogo.svg" alt="학교로고">
+                <h1 class="header__title">명함소개팅</h1>
             </div>
             <nav class="nav__container">
                 <ul class="nav__menu">
@@ -48,7 +49,7 @@
         <main id="main">
             <section id="home">
                 <div class="max-container">
-                    <img class="homeImg__Logo" src="../static/assets/team__logo.png" alt="team logo">
+                    <img class="homeImg__Logo" src="./assets/teamLogo.svg">
                     <div class="home__desc-container">
                         <h1 class="home__title"></h1>
                         <p class="home__desc">
@@ -97,7 +98,7 @@
                     <div class="step1-container">
                         <div class="step__text-container">
                             <article class="step1-content">
-                                <h1 class="step__title">재학생 인증하기<br>(Accreditation)</h1>
+                                <h1 class="step__title">1. 재학생 인증하기<br>(Accreditation)</h1>
                                 <p class="step__desc-kor">
                                     1. 'START' 버튼을 누르면 인증사이트로 넘어갑니다.
                                     <br>
@@ -115,21 +116,17 @@
                             </article>
                             <a class="nextStepButton1" href="#step2">NEXT</a>
                         </div>
-                        <img class="step__img"
-                            src="https://d1unjqcospf8gs.cloudfront.net/assets/home/main/3x/image-business-cc45c805de4a639e259aea606640042d09bccf358e8d20f50af325dd994aceef.webp"
-                            alt="step3-img">
+                        <img class="step__img" src="../static/assets/step1.svg" alt="step1-img">
                     </div>
                 </div>
             </section>
             <section id="step2">
                 <div class="max-container">
                     <div class="step2-container">
-                        <img class="step__img"
-                            src="https://d1unjqcospf8gs.cloudfront.net/assets/home/main/3x/rebranded-image-2-78a84106155b4b2c341b6425515a90782dc08a6f443ba0bb622700ef788d2e19.webp"
-                            alt="step4-img">
+                        <img class="step__img" src="../static/assets/step2.svg" alt="step2-img">
                         <div class="step__text-container">
                             <article class="step2__content">
-                                <h1 class="step__title">명함 작성하기<br>(Create a card)</h1>
+                                <h1 class="step__title">2. 명함 작성하기<br>(Create a card)</h1>
                                 <p class="step__desc-kor">
                                     1. 원하는 명함 색상과 동물상을 고르세요.
                                     <br>
@@ -155,31 +152,28 @@
                     <div class="step3-container">
                         <div class="step__text-container">
                             <article class="step3__content">
-                                <h1 class="step__title">명함 뽑기<br>(Pick a card)</h1>
+                                <h1 class="step__title">3. 명함 뽑기<br>(Pick a card)</h1>
                                 <p class="step__desc-kor">
-                                    1. 추천서비스 혹은 랜덤2장뽑기를 고릅니다.
+                                    1. 추천서비스로 1장 혹은 랜덤으로 2장을 제공합니다.
                                     <br>
-                                    2. 추천서비스는 당신의 정보를 고려하여 최적의 카드를 1장 추천해줍니다.
+                                    2. 카드를 확정을 하면 이름, 연락처가 공개됩니다.
                                     <br>
-                                    3. 카드를 확정하면 프로필사진, 이름, 연락처가 공개됩니다.
+                                    3. 이제 상대방과 연락하세요!
                                 </p>
                                 <p class="step__desc-eng">
-                                    1. Choose either the recommended service or random draw of 2 cards.
+                                    1. Provide 1 card from the recommended service or 2 cards at random.
                                     <br>
-                                    2. The recommended service will suggest the best card based on your information.
+                                    2. When cards are confirmed, name and contact information will be revealed.
                                     <br>
-                                    3. Once you confirm the card, your profile picture, name, and contact information
-                                    will be revealed.
+                                    3. Now, get in touch with the other person!
                                 </p>
                             </article>
                             <a class="nextStepButton3" href="#start">NEXT</a>
                         </div>
-                        <img class="step__img" src="./assets/Step5.svg" alt="step5-img">
+                        <img class="step__img" src="../static/assets/step3.svg" alt="step3-img">
                     </div>
-
                 </div>
             </section>
-
             <section id="start">
                 <div class="max-container">
                     <div class="start__container">
@@ -216,31 +210,33 @@
                         </div>
                         <div class="start__desc-container">
                             <h1>자 떠나러 가볼까요? <span class="start__accent">운명의 상대를 만나러</span>..</h1>
-                            <a class="start__button" href="./login">START</a>
-                        </div>
-
-                    </div>
-                </div>
-            </section>
-            <section id="contact">
-                <div class="max-container">
-                    <div class="contact__container">
-                        <p>All rights - Cho, Moon, Lee, Jung</p>
-                        <p>Design by Lee Seo-in</p>
-                        <p>Front-End by Cho Yu-chan & Lee Seo-in</p>
-                        <p>Back-End by Moon Hyo-jae & Jeong Da-un</p>
-                    </div>
-                    <div class="contact__SNS">
-                        <div class="contact__SNS">
-                            <a href="../templates/home/blog.html"><i class="fa-solid fa-blog"></i></a>
-                            <!-- a태그안에 i태그를 감쌀 것, 아니면 링크이동불가-->
-                            <a href="../templates/home/insta.html"><i class="fa-brands fa-instagram"></i></a>
-                            <a href="../templates/home/github.html"><i class="fa-brands fa-github"></i></a>
+                            <a class="start__button" href="/login">START</a>
                         </div>
                     </div>
                 </div>
             </section>
         </main>
+        <button id="arrow-up">
+            <i class="fa-solid fa-arrow-up"></i>
+        </button>
+        <footer id="contact">
+            <div class="max-container">
+                <div class="contact__container">
+                    <p>All rights - Cho, Moon, Lee, Jung</p>
+                    <p>Design by Lee Seo-in</p>
+                    <p>Front-End by Cho Yu-chan & Lee Seo-in</p>
+                    <p>Back-End by Moon Hyo-jae & Jeong Da-un</p>
+                </div>
+                <div class="contact__SNS">
+                    <div class="contact__SNS">
+                        <a href="../templates/home/blog.html"><i class="fa-solid fa-blog"></i></a>
+                        <!-- a태그안에 i태그를 감쌀 것, 아니면 링크이동불가-->
+                        <a href="../templates/home/insta.html"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="../templates/home/github.html"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                </div>
+            </div>
+        </footer>
     </body>
 
 </html>

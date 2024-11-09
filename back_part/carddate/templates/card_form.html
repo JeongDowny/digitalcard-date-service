@@ -1,104 +1,189 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ko">
 
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="author" content="Your Name">
-        <meta name="description" content="User Information Form">
-        <title>User Information Form</title>
+        <title>폼 스타일링 예제</title>
         <style>
+            /* 전체 페이지 스타일 */
             body {
-                font-family: Arial, sans-serif;
-                background-color: #f2f2f2;
                 display: flex;
+                flex-direction: column;
                 justify-content: center;
                 align-items: center;
-                height: 100vh;
+                min-height: 100vh;
                 margin: 0;
+                background-color: #d1d1d1;
+                font-family: Arial, sans-serif;
+                gap: 50px;
             }
 
+            /* 폼 컨테이너 스타일 */
             .form-container {
-                background-color: white;
+                display: flex;
+                background-color: #e5e5e5;
                 padding: 20px;
-                border-radius: 8px;
-                box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-                width: 400px;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             }
 
-            .form-container h2 {
-                text-align: center;
-                margin-bottom: 20px;
+            /* 이미지 스타일 */
+            .form-image {
+                width: 200px;
+                height: 200px;
+                background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSFMfmir7xG_93URQ1381Bn-tbZzzRVVuwYtA&s');
+                /* 이미지 경로 */
+                background-size: cover;
+                background-position: center;
+                border-radius: 10px;
+                margin-right: 20px;
             }
 
-            .form-container label {
-                display: block;
-                margin-bottom: 8px;
-                font-weight: bold;
-            }
-
-            .form-container input[type="text"],
-            .form-container input[type="number"],
-            .form-container input[type="tel"],
-            .form-container select {
-                width: 100%;
-                padding: 8px;
-                margin-bottom: 15px;
-                border: 1px solid #ccc;
-                border-radius: 4px;
-                box-sizing: border-box;
-            }
-
-            .form-container button {
-                width: 100%;
-                background-color: #4CAF50;
-                color: white;
+            /* 정보 입력 섹션 스타일 */
+            .form-info {
+                border: 2px dashed #ffa6a6;
                 padding: 10px;
-                border: none;
-                border-radius: 4px;
-                cursor: pointer;
+                border-radius: 10px;
+                width: 250px;
             }
 
-            .form-container button:hover {
-                background-color: #45a049;
+            /* 각 항목을 한 줄로 배치 */
+            .form-row {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 10px;
+            }
+
+            /* label 스타일 */
+            .form-row label {
+                font-weight: bold;
+                flex: 0 0 40%;
+                /* label 너비 설정 */
+            }
+
+            /* input 스타일 */
+            .form-row input {
+                flex: 1;
+                padding: 5px;
+                border: none;
+                border-bottom: 1px solid #000;
+                background-color: transparent;
+                outline: none;
+            }
+
+            .card_UX {
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                background-color: #e5e5e5;
+            }
+
+            .color-container {
+                padding: 7px;
+                display: flex;
+                gap: 10px;
+                justify-content: space-between;
+                align-items: center;
+            }
+
+
+
+            .color {
+                border: 1px solid black;
+                border-radius: 50%;
+                padding: 10px;
+
+            }
+
+            .animalImg-container {
+                padding: 10px;
+                display: grid;
+                grid-template-columns: repeat(8, 1fr);
+                grid-template-rows: repeat(2, 1fr);
+                gap: 3px;
+            }
+
+            .animalImg {
+                border: 1px solid black;
+                height: 50px;
+                width: 50px;
+            }
+
+            hr {
+                width: 100%;
+                /* 너비를 컨테이너에 맞게 100%로 설정 */
+                border: 1px solid #333;
+                /* 선의 두께와 색상 지정 */
+                margin: 0;
+                /* 상하좌우 여백을 없앰 */
             }
         </style>
     </head>
 
     <body>
-
         <div class="form-container">
-            <h2>Personal Information</h2>
-            <form action="/submit" method="POST">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" placeholder="Your name.." required>
-
-                <label for="gender">Gender</label>
-                <select id="gender" name="gender" required>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
-
-                <label for="age">Age</label>
-                <input type="number" id="age" name="age" placeholder="Your age.." required>
-
-                <label for="department">Department</label>
-                <input type="text" id="department" name="department" placeholder="Your department.." required>
-
-                <label for="mbti">MBTI</label>
-                <input type="text" id="mbti" name="mbti" placeholder="Your MBTI.." required>
-
-                <label for="hobbies">Hobbies</label>
-                <input type="text" id="hobbies" name="hobbies" placeholder="Your hobbies.." required>
-
-                <label for="phone">Phone Number</label>
-                <input type="tel" id="phone" name="phone" placeholder="Your contact number.." required>
-
-                <button type="submit">Submit</button>
+            <div class="form-image">
+                <!-- 고양이 이미지를 배경으로 설정 -->
+            </div>
+            <form class="form-info">
+                <div class="form-row">
+                    <label>성별 :</label>
+                    <input type="text" placeholder="여성">
+                </div>
+                <div class="form-row">
+                    <label>이름 :</label>
+                    <input type="text" placeholder="김야옹">
+                </div>
+                <div class="form-row">
+                    <label>학과 :</label>
+                    <input type="text" placeholder="컴퓨터공학과">
+                </div>
+                <div class="form-row">
+                    <label>학번(나이) :</label>
+                    <input type="text" placeholder="23학번(21살)">
+                </div>
+                <div class="form-row">
+                    <label>MBTI :</label>
+                    <input type="text" placeholder="INTJ">
+                </div>
+                <div class="form-row">
+                    <label>취미 :</label>
+                    <input type="text" placeholder="축구, OTT">
+                </div>
+                <div class="form-row">
+                    <label>연락처 :</label>
+                    <input type="text" placeholder="insta_id01">
+                </div>
             </form>
         </div>
-
+        <div class="card_UX">
+            <div class="color-container">
+                <button class="color c1"></button>
+                <button class="color c2"></button>
+                <button class="color c3"></button>
+                <button class="color c4"></button>
+                <button class="color c5"></button>
+                <button class="color c6"></button>
+                <button class="color c7"></button>
+                <button class="color c8"></button>
+                <button class="submitButton" type="submit">제출하기</button>
+            </div>
+            <hr>
+            <div class="animalImg-container">
+                <img src="" alt="" class="animalImg"><img src="" alt="" class="animalImg"><img src="" alt=""
+                    class="animalImg"><img src="" alt="" class="animalImg"><img src="" alt="" class="animalImg"><img
+                    src="" alt="" class="animalImg"><img src="" alt="" class="animalImg"><img src="" alt=""
+                    class="animalImg"><img src="" alt="" class="animalImg"><img src="" alt="" class="animalImg"><img
+                    src="" alt="" class="animalImg"><img src="" alt="" class="animalImg"><img src="" alt=""
+                    class="animalImg"><img src="" alt="" class="animalImg"><img src="" alt="" class="animalImg"><img
+                    src="" alt="" class="animalImg">
+            </div>
+        </div>
     </body>
 
 </html>

@@ -1,4 +1,4 @@
-from flask import Blueprint, url_for, flash, request, session, render_template
+from flask import Blueprint, url_for, flash, request, session, render_template, session
 import requests
 from werkzeug.utils import redirect
 
@@ -11,7 +11,6 @@ bp = Blueprint('login', __name__, url_prefix='/login')
 # 학교 인증 페이지
 @bp.route('/')
 def index():
-    #clear_user('daun5535@seoultech.ac.kr')
     return render_template('login.html')
 
 # 학교명 확인
@@ -55,6 +54,7 @@ def send_email():
         return redirect(url_for('login.index', univ_name=univ_name, email=email))
     else:
         if check_status(email):
+            flash('인증여부 확인되었습니다.', category='success')
             return redirect(url_for('card.index'))
         else:
             flash('이메일 전송에 실패했습니다.', category='error')
@@ -129,4 +129,4 @@ def check_status(email):
         print(result.get('certified_date'))
         return result.get('success')
     else:
-        return result.get('success')
+        return result.get('failed')

@@ -9,16 +9,16 @@ bp = Blueprint('card', __name__, url_prefix='/card')
 def index():
     return render_template('card_form.html')
 
-@bp.route('/sumbit')
+@bp.route('/sumbit', method=("POST", ))
 def submit():
     # 폼 데이터 가져오기
-    gender = request.form.get('gender')
-    age = request.form.get('age')
-    major = request.form.get('major')
-    mbti = request.form.get('mbti')
-    hobby = request.form.get('hobby')
-    name = request.form.get('name')
-    contact = request.form.get('contact')
+    name = request.form('name')
+    gender = request.form('gender')
+    major = request.form('major')
+    age = request.form('age')
+    mbti = request.form('mbti')
+    hobby = request.form('hobby')
+    contact = request.form('contact')
 
     # 데이터 유효성 검사
     if not (gender and age and major and mbti and hobby and name and contact):
@@ -28,10 +28,10 @@ def submit():
     # 데이터베이스에 새로운 프로필 데이터 저장
     try:
         new_profile = Profile(
-            name=name,
             gender=gender,
-            age=int(age),  # 나이를 정수형으로 변환
+            name=name,
             major=major,
+            age=age, 
             mbti=mbti,
             hobby=hobby,
             contact=contact
