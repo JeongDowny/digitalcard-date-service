@@ -1,4 +1,4 @@
-
+'use strict';
     // 위로가기 버튼 기능
     const arrowUpBtn = document.getElementById('arrow-up');
 

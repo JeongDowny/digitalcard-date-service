@@ -10,12 +10,14 @@
     <meta property="og:image" content="#" />
     <meta property="og:url" content="#" />
     <meta property="og:type" content="website" />
-    <script src="./src/home__typeit.js" type="module"></script>
+    <script src="./src/onboarding/home_typeit.js" type="module"></script>
     <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
-    <script src="./src/fortune.js" type="module"></script>
-    <script src="./src/active.js" type="module"></script>
-    <script src="./src/arrowUp.js" type="module"></script>
-    <link rel="stylesheet" href="./css/home.css">
+    <script src="./src/onboarding/fortune.js" type="module"></script>
+    <script src="./src/onboarding/active.js" type="module"></script>
+    <script src="./src/onboarding//arrowUp.js" type="module"></script>
+    <script src="./src/onboarding/sectionImgAni.js" type="module"></script>
+    <script src="./src/onboarding/scrollToTop.js" type="module"></script>
+    <link rel="stylesheet" href="./css/onboarding.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
@@ -24,7 +26,7 @@
     <title>Card With Love(명함은 사랑을 싣고)</title>
 </head>
 <body>
-    <header id="header">
+    <header id="header" aria-label="title, logo, navigation bar">
         <div class="header__dev-container">
             <img class="header__img" src="./assets/teamLogo.svg" alt="학교로고">
             <h1 class="header__title">명함소개팅</h1>
@@ -41,7 +43,7 @@
             </ul>
         </nav>
     </header>
-    <main id="main">
+    <main id="main" aria-label="how to use this web-site">
         <section id="home">
             <div class="max-container">
                     <img class="homeImg__Logo" src="./assets/teamLogo.svg">
@@ -163,7 +165,7 @@
                                 3. Now, get in touch with the other person!
                             </p>                                                    
                         </article>    
-                        <a class="nextStepButton3" href="#start">NEXT</a>                
+                        <a class="nextStepButton3" href="#start">NEXT</a>      
                     </div>
                     <img class="step__img" src="./assets/step3.svg" alt="step3-img">
                 </div>           
@@ -171,37 +173,44 @@
         </section>           
         <section id="start">
             <div class="max-container">
-                <div class="start__container">
-                    <div class="start__fortune-container">
-                        <h3>오늘 연애 운세는?
-                            <br>
-                            Fortune cookie
-                        </h3>
-                        <p class="start__fortune__content1">
-                            곧 다가올 만남에서 당신이 예상하지 못한 매력적인 사람이 나타날 것입니다. 그 사람에게 마음을 열고, 먼저 다가가는 용기를 가지세요. 서로의 마음이 맞는 순간이 찾아옵니다.
-                        </p>
-                        
-                        <p class="start__fortune__content2">
-                            이번 주에는 감정의 기복을 느낄 수 있지만, 그것은 곧 사랑의 신호일 수 있습니다. 중요한 것은 자신의 감정을 신중히 살피고, 너무 서두르지 않는 것입니다. 천천히 다가가면 더 깊은 연결을 만들 수 있습니다.
-                        </p>
-                        
-                        <p class="start__fortune__content3">
-                            연애에 있어서 중요한 전환점에 다다랐습니다. 상대방에게 솔직한 대화를 시도해 보세요. 당신의 진심이 전달되면, 관계는 새로운 단계로 나아갈 것입니다. 작은 용기가 큰 변화를 불러올 수 있습니다.
-                        </p>
-                        
-                        <p class="start__fortune__content4">
-                            가까운 미래에 예상치 못한 장소에서 당신의 연인을 만날 가능성이 높습니다. 평소 가지 않던 곳이나 새로운 활동에 참여해 보세요. 우연한 만남이 특별한 인연으로 이어질 수 있습니다.
-                        </p>
-                        
-                        <p class="start__fortune__content5">
-                            당신이 기다리던 사랑은 이미 주변에 있을지도 모릅니다. 눈에 보이지 않는 신호들을 놓치지 말고, 마음을 여는 연습을 하세요. 작은 친절이 큰 인연으로 발전할 수 있는 순간이 곧 찾아옵니다.
-                        </p>                        
-                        <button class="start__fortune__button">랜덤뽑기</button>
+                <div class="start-container">
+                    <div class="start_fortuneCard-container">
+                        <button class="start_cardButton">포츈카드 뽑기!</button>
+                        <ul>
+                            <li class="start_card card1">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">당신의 이상형이 바로 곁에 있어요!</div>
+                            </li>
+                            <li class="start_card card2">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">당신에게 특별한 사람이 곧 찾아올 거예요.</div>
+                            </li>
+                            <li class="start_card card3">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">행운이 함께하는 오늘, 사랑을 느껴보세요.</div>
+                            </li>
+                            <li class="start_card card4">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">마음의 문을 열면 사랑이 들어옵니다.</div>
+                            </li>
+                            <li class="start_card card5">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">특별한 인연은 오늘이 시작입니다.</div>
+                            </li>
+                            <li class="start_card card6">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">행운이 따르는 하루, 사랑도 가득합니다.</div>
+                            </li>
+                            <li class="start_card card7">
+                                <div class="start_card-front"></div>
+                                <div class="start_card-back">오늘읜 연애의 기운이 느껴지지 않네요..</div>
+                            </li>
+                        </ul>
                     </div>
-                    <div class="start__desc-container">
-                        <h1>자 떠나러 가볼까요? <span class="start__accent">운명의 상대를 만나러</span>..</h1>
-                        <a class="start__button" href="./login.html">START</a>
-                    </div>              
+                    <div  class="start_nextStep-container">
+                        <p class="start_nextStep_desc">자.. 이제 떠나볼까요. 운명의 상대를 만나러!</p>
+                        <a class="start_nextStep" href="./login.html"><img src="./assets/startButton.svg" alt=""></a>
+                    </div>
                 </div>     
             </div>
         </section>
@@ -209,21 +218,25 @@
     <button id="arrow-up">
         <i class="fa-solid fa-arrow-up"></i>
     </button>
-    <footer id="contact">
+    <footer id="contact" aria-label="information of rights and developer">
         <div class="max-container">
-            <div class="contact__container">
-                <p>All rights - Cho, Moon, Lee, Jung</p>
-                <p>Design by Lee Seo-in</p>
-                <p>Front-End by Cho Yu-chan & Lee Seo-in</p>
-                <p>Back-End by Moon Hyo-jae & Jeong Da-un</p>
+            <div class="contact-container">
+                <div class="contact_rights-container">
+                    <p>This website is copyrighted by © <strong>CHO MOON LEE JEONG</strong>. <br>Image credits for non-design elements: <a href="https://kr.freepik.com/">Freepik</a>, <a href="https://www.svgrepo.com/">SVGrepo</a>, <a href="https://www.svgbackgrounds.com/">SVGbackgrounds</a>, other blogs.</p>
+                    <p>Lead Designer: <strong>Seo-in Lee </strong>(Assistant: Yu-chan Cho)</p>
+                    <p>Lead Front-End Developer: <strong>Yu-chan Cho</strong>(Assistant: Seo-in Lee)</p>
+                    <p>Lead Back-End Developers: <strong>Hyo-jae Moon & Da-un Jeong</strong></p>
+                </div>
+                <div class="contact_rightPart-container">
+                    <div class="contact__SNS-container">
+                        <a href="./contact/blog.html" title="link to blog"><i class="fa-solid fa-blog"></i></a>
+                        <a href="./contact/insta.html" title="link to instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="./contact/github.html" title="link to github"><i class="fa-brands fa-github"></i></a>
+                    </div>
+                    <img class="contact_img" src="./assets/teamLogo.svg" alt="teamLogo">      
+                </div>
+                
             </div>
-            <div class="contact__SNS">
-                <div class="contact__SNS">
-                    <a href="./blog.html"><i class="fa-solid fa-blog"></i></a> <!-- a태그안에 i태그를 감쌀 것, 아니면 링크이동불가-->
-                    <a href="./insta.html"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="./github.html"><i class="fa-brands fa-github"></i></a>
-                </div>                              
-            </div>      
         </div>
     </footer>
 </body>

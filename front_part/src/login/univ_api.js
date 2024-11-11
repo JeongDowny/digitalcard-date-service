@@ -1,3 +1,5 @@
+'use strict';
+
 const API_BASE_URL = 'https://univcert.com/api/v1';
 const API_KEY = '0a88c9b6-497f-4236-820c-79866b6a4e08'; // 여기에 API 키를 입력하세요
 
@@ -153,5 +155,5 @@ fetchCertifiedList();
 
 // JSON(JavaScript Object Notation): 데이터 저장 및 전송을 위한 가벼운 형식 -> 서버와 클라이언트 간의 데이터 전송에서 많이 사용
 // JSON은 'key: value'로 이루어짐 -> 일반 객체랑 비슷
-// JSON.stringfy(obj) -> JSON화: 서버에 보낼 떼
+// JSON.stringfy(obj) -> JSON화: 서버에 보낼 때
 // JSON.parse(JSON) -> JS객체화: 클라이언트에서 다룰 때
