@@ -1,8 +1,9 @@
 # Default ignored files
 /shelf/
 /workspace.xml
-<<<<<<< HEAD
-**__pycache__/
+
+__pycache__/
 *.py[cod]
 *.pyc
+*.xml
 **/.DS_Store
