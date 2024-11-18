@@ -2,7 +2,6 @@ from flask import Blueprint, url_for, flash, request, session, render_template, 
 import requests
 from werkzeug.utils import redirect
 
-
 API_BASE_URL = 'https://univcert.com/api/v1'
 API_KEY = '3ff92442-2fa8-4115-9902-9454f05fcdb9'
 
@@ -54,6 +53,8 @@ def send_email():
         return redirect(url_for('login.index', univ_name=univ_name, email=email))
     else:
         if check_status(email):
+            session.clear()
+            session['user_email'] = email
             flash('인증여부 확인되었습니다.', category='success')
             return redirect(url_for('card.index'))
         else:

@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for, flash
+from flask import Blueprint, request, render_template, redirect, url_for, flash, session
 import requests
 from werkzeug.utils import redirect
 
@@ -12,7 +12,9 @@ bp = Blueprint('card', __name__, url_prefix='/card')
 
 @bp.route('/')
 def index():
-    return render_template('card_form.html')
+    if'user_email' in session:
+        return render_template('card_form.html')
+    return redirect(url_for('login.index'))
 
 @bp.route('/create', methods=("POST", ))
 def create():
