@@ -4,7 +4,7 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>폼 스타일링 예제</title>
+        <title>card_form</title>
         <style>
             /* 전체 페이지 스타일 */
             body {
@@ -126,11 +126,11 @@
     </head>
 
     <body>
+    <form class="form-info" action="{{ url_for('drawing.create') }}" method="POST">
         <div class="form-container">
             <div class="form-image">
                 <!-- 고양이 이미지를 배경으로 설정 -->
             </div>
-            <form class="form-info">
                 <div class="form-row">
                     <label>성별 :</label>
                     <input type="text" placeholder="여성">
@@ -159,7 +159,6 @@
                     <label>연락처 :</label>
                     <input type="text" placeholder="insta_id01">
                 </div>
-            </form>
         </div>
         <div class="card_UX">
             <div class="color-container">
@@ -184,6 +183,7 @@
                     src="" alt="" class="animalImg">
             </div>
         </div>
+    </form>
     </body>
 
 </html>

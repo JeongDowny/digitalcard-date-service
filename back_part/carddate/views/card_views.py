@@ -33,5 +33,5 @@ def create():
         )
         db.session.add(profile)
         db.session.commit()
-        return redirect(url_for())
+        return redirect(url_for('card_drawing.index'))
     return render_template('card_form.html')

@@ -4,5 +4,5 @@ from werkzeug.utils import redirect
 bp = Blueprint('main', __name__, url_prefix='/')
 
 @bp.route('/')
-def hello_pybo():
+def home():
     return render_template('home.html')
