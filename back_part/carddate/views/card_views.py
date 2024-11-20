@@ -1,4 +1,4 @@
-from flask import Blueprint, request, render_template, redirect, url_for, flash, session
+from flask import Blueprint, request, render_template, redirect, url_for, flash, session, jsonify
 import requests
 from werkzeug.utils import redirect
 
@@ -16,8 +16,10 @@ def index():
         return render_template('card_form.html')
     return redirect(url_for('login.index'))
 
-@bp.route('/create', methods=("POST", ))
+@bp.route('/submit', methods=("POST", ))
 def create():
+    data = request.get_json()
+    print(data)
     form = ProfileForm()
 
     if form.validate_on_submit():
@@ -33,5 +35,6 @@ def create():
         )
         db.session.add(profile)
         db.session.commit()
+        print()
         return redirect(url_for('card_drawing.index'))
     return render_template('card_form.html')
