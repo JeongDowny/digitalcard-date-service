@@ -19,6 +19,39 @@
     --color-accent-variant: var(--color-peach);
     --color-text-variant: var(--color-DifferentGray);
 }
+
+/* animation */
+@keyframes glow {
+  0% {
+      box-shadow: 0 0 20px 5px rgba(255, 0, 128, 0.8), 
+                  0 0 40px 10px rgba(255, 0, 128, 0.6), 
+                  0 0 60px 15px rgba(255, 0, 128, 0.4);
+  }
+  50% {
+      box-shadow: 0 0 30px 10px rgba(255, 105, 180, 0.9), 
+                  0 0 50px 20px rgba(255, 105, 180, 0.7), 
+                  0 0 70px 30px rgba(255, 105, 180, 0.5);
+  }
+  100% {
+      box-shadow: 0 0 40px 15px rgba(255, 0, 128, 1), 
+                  0 0 60px 30px rgba(255, 0, 128, 0.8), 
+                  0 0 80px 45px rgba(255, 0, 128, 0.6);
+  }
+}
+
+/* 깜박이는 효과 */
+@keyframes flicker {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.9;
+  }
+  75% {
+      opacity: 0.95;
+  }
+}
+
 /* common */
 *{
     box-sizing: border-box;
@@ -106,6 +139,8 @@
 
 .card-container {
     margin-top: 50px;
+    animation: glow 2s infinite alternate, flicker 0.1s infinite; /* transform 제외 */
+    border-radius: 10px;
 }
 
 .card {
@@ -125,6 +160,7 @@
     top: 0; /* 부모의 시작점에 고정 */
     left: 0;
     backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;    
     border-radius: 10px;
     display: flex;
     align-items: center;
@@ -132,14 +168,9 @@
     box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
 }
 
-
-.card:hover {
-    transform: rotateY(180deg);
-}
-
 .card-front {
-    background-color: var(--color-white);
-    transform: rotateY(0deg);
+  background-image: url(../assets/cardBack.svg);
+  transform: rotateY(0deg);
 }
 
 .card-back {
