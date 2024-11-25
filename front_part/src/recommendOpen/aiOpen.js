@@ -6,13 +6,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const infoRows = document.querySelectorAll('.info-row.hidden'); // 숨겨진 정보
 
     const cardInfo = {
-        gender: document.querySelector('.info-row:nth-child(1) .value'),
-        name: document.querySelector('.info-row.hidden:nth-child(2) .value'),
-        department: document.querySelector('.info-row:nth-child(3) .value'),
-        yearAge: document.querySelector('.info-row:nth-child(4) .value'),
-        mbti: document.querySelector('.info-row:nth-child(5) .value'),
-        hobbies: document.querySelector('.info-row:nth-child(6) .value'),
-        contact: document.querySelector('.info-row.hidden:nth-child(7) .value'),
+        gender: document.querySelector('.gender'),
+        name: document.querySelector('.name'),
+        major: document.querySelector('.major'),
+        studentID_age: document.querySelector('.studentID_age'),
+        mbti: document.querySelector('.mbti'),
+        hobbies: document.querySelector('.hobbies'),
+        contact: document.querySelector('.contact'),
     };
 
     let isRecommendationOpened = false; // 추천 오픈 상태 변수
@@ -40,8 +40,8 @@ document.addEventListener('DOMContentLoaded', () => {
         animalImage.src = data.image; // 서버에서 받은 동물 이미지 URL 설정
         cardInfo.gender.textContent = data.gender;
         cardInfo.name.textContent = data.name;
-        cardInfo.department.textContent = data.department;
-        cardInfo.yearAge.textContent = data.yearAge;
+        cardInfo.major.textContent = data.department;
+        cardInfo.studentID_age.textContent = data.yearAge;
         cardInfo.mbti.textContent = data.mbti;
         cardInfo.hobbies.textContent = data.hobbies;
         cardInfo.contact.textContent = data.contact;

@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const cardInfo = {
         gender: document.querySelector('.gender'),
         name: document.querySelector('.name'),
-        department: document.querySelector('.department'),
-        yearAge: document.querySelector('.year-age'),
+        major: document.querySelector('.major'),
+        studentID_age: document.querySelector('.studentID_age'),
         mbti: document.querySelector('.mbti'),
         hobbies: document.querySelector('.hobbies'),
         contact: document.querySelector('.contact'),
@@ -41,8 +41,8 @@ document.addEventListener('DOMContentLoaded', () => {
         cardBack.style.backgroundImage = `url(${data.backgroundImage})`; // 백그라운드 이미지
         cardInfo.gender.textContent = data.gender;
         cardInfo.name.textContent = data.name;
-        cardInfo.department.textContent = data.department;
-        cardInfo.yearAge.textContent = data.yearAge;
+        cardInfo.major.textContent = data.major;
+        cardInfo.studentID_age.textContent = data.studentID_age;
         cardInfo.mbti.textContent = data.mbti;
         cardInfo.hobbies.textContent = data.hobbies;
         cardInfo.contact.textContent = data.contact;
