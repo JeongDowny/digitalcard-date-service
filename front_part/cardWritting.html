@@ -3,17 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="letYuchan">
+    <meta name="description" content="This page is a blind date site where you can find out the other person's information through random cards and develop into lovers through contact.">
+    <meta property="og:title" content="card with love(명함을 사랑을 싣고)" />
+    <meta property="og:description" content="blind date site for University Student" />
+    <meta property="og:image" content="#" />
+    <meta property="og:url" content="#" />
     <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="./css/cardWritting.css">
+    <link rel="shortcut icon" href="./assets/teamLogo.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://unpkg.com/typeit@8.7.1/dist/index.umd.js"></script>
     <script src="./src/cardWritting/changeAnimalImg.js" type="module"></script>
-    <script src="./src/cardWritting/submitToserver.js" type="module"></script>
+    <script src="./src/cardWritting/submit.js" type="module"></script>
     <script src="./src/cardWritting/changeColor.js" type="module"></script>
-    <title>card writting(카드작성)</title>
-    <style>
-       
-    </style>
+    <title>Card Writting(카드작성)</title>
 </head>
 <body>
     <header id="header" aria-label="title, logo">
@@ -28,31 +33,31 @@
             <div class="form_info">
                 <div class="form_row">
                     <label>성별 :</label>
-                    <input type="text" placeholder="여성">
+                    <input type="text" name="gender" placeholder="여성" required>
                 </div>
                 <div class="form_row">
                     <label>이름 :</label>
-                    <input type="text" placeholder="김야옹">
+                    <input type="text" name="name" placeholder="김야옹" required>
                 </div>
                 <div class="form_row">
                     <label>학과 :</label>
-                    <input type="text" placeholder="컴퓨터공학과">
+                    <input type="text" name="major" placeholder="컴퓨터공학과" required>
                 </div>
                 <div class="form_row">
                     <label>학번(나이) :</label>
-                    <input type="text" placeholder="23학번(21살)">
+                    <input type="text" name="studentID(age)" placeholder="23학번(21살)" required>
                 </div>
                 <div class="form_row">
                     <label>MBTI :</label>
-                    <input type="text" placeholder="INTJ">
+                    <input type="text" name="MBTI" placeholder="INTJ" required>
                 </div>
                 <div class="form_row">
                     <label>취미 :</label>
-                    <input type="text" placeholder="축구, OTT">
+                    <input type="text" name="hobby" placeholder="축구, OTT" required>
                 </div>
                 <div class="form_row">
                     <label>연락처 :</label>
-                    <input type="text" placeholder="insta_id01">
+                    <input type="text" name="SNS_ID" placeholder="insta_id01" required>
                 </div>
             </div>
         </form>
@@ -95,10 +100,10 @@
         <div class="max-container">
             <div class="contact-container">
                 <div class="contact_rights-container">
-                    <p>This website is copyrighted by © <strong>CHO MOON LEE JEONG</strong>. <br>Image credits for non-design elements: <a href="https://kr.freepik.com/">Freepik</a>, <a href="https://www.svgrepo.com/">SVGrepo</a>, <a href="https://www.svgbackgrounds.com/">SVGbackgrounds</a>, other blogs.</p>
+                    <p>This website is copyrighted by © <strong>CHO&LEE</strong>. <br>Image credits for non-design elements: <a href="https://kr.freepik.com/">Freepik</a>, <a href="https://www.svgrepo.com/">SVGrepo</a>, <a href="https://www.svgbackgrounds.com/">SVGbackgrounds</a>, other blogs.</p>
                     <p>Lead Designer: <strong>Seo-in Lee </strong>(Assistant: Yu-chan Cho)</p>
                     <p>Lead Front-End Developer: <strong>Yu-chan Cho</strong>(Assistant: Seo-in Lee)</p>
-                    <p>Lead Back-End Developers: <strong>Hyo-jae Moon & Da-un Jeong</strong></p>
+                    <p>Lead Back-End Developers: <strong>both</strong></p>
                 </div>
                 <div class="contact_rightPart-container">
                     <div class="contact__SNS-container">
