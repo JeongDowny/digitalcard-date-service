@@ -82,16 +82,16 @@
 
   /* header */
   #header{
+    /* --tw-backdrop-filter: blur(4px); */
+    backdrop-filter: blur(2px);
     margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
-    z-index: 2;
+    z-index: 100;
     width: 100%;
-    background-color: var(--color-accent-variant);
-    border-bottom: 2px solid var(--color-accent);
   }
  .header__dev-container{
     display: flex;
@@ -106,7 +106,7 @@
 
   .header__title{
     font-size: 1rem;
-    color: var(--color-white);
+    color: var(--color-black);
     text-align: center;
   }
   
@@ -128,7 +128,7 @@
   }
 
   .nav__menu__item a{
-    color: var(--color-white);
+    color: var(--color-black);
   }
 
   .nav__menu__item::after {
@@ -139,11 +139,11 @@
     height: 20px;
     left: 15px;
     top: 5px;
-    background-color: var(--color-white);
+    background-color: var(--color-black);
   }
 
   .nav__active{
-    border-bottom: 2px solid var(--color-primary-variant);
+    border-bottom: 2px solid var(--color-accent-variant);
   }
 
   #main{
