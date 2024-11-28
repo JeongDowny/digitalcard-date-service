@@ -10,6 +10,9 @@ bp = Blueprint('drawing', __name__, url_prefix='/drawing')
 
 @bp.route('/')
 def index():
-    if'user_email' in session:
-        return render_template('drawing.html')
+    '''
+    if 'user_email' in session:
+        return render_template('form.html')
     return redirect(url_for('login.index'))
+    '''
+    return render_template('drawing.html')

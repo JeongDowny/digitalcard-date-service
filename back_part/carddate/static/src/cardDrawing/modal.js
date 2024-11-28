@@ -7,14 +7,14 @@ document.addEventListener("DOMContentLoaded", () => {
     const cardStrip = document.querySelector(".modal_card-container");
 
     const cardImages = [
-        ".ㅋ/assets/card_gray.svg",
-        "./assets/card_blue.svg",
-        "./assets/card_yellow.svg",
-        "./assets/card_pink.svg",
-        "./assets/card_orange.svg",
-        "./assets/card_green.svg",
-        "./assets/card_purple.svg",
-        "./assets/card_white.svg"
+        "../static/assets/card_gray.svg",
+        "../static/assets/card_blue.svg",
+        "../static/assets/card_yellow.svg",
+        "../static/assets/card_pink.svg",
+        "../static/assets/card_orange.svg",
+        "../static/assets/card_green.svg",
+        "../static/assets/card_purple.svg",
+        "../static/assets/card_white.svg"
     ];
 
     let isSpinning = false;
@@ -130,9 +130,9 @@ document.addEventListener("DOMContentLoaded", () => {
         setTimeout(() => {
             alert("카드 뽑기 성공!");
             if (currentAction === "random") {
-                window.location.href = "./randomOpen.html";
+                window.location.href = "/random";
             } else if (currentAction === "recommend") {
-                window.location.href = "./recommendOpen.html";
+                window.location.href = "/recommend";
             }
         }, 1000);
     }

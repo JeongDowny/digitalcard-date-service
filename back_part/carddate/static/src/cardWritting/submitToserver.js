@@ -34,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const result = await response.json();
             alert('프로필이 성공적으로 저장되었습니다!');
-            window.location.href = '/card/drawing';  // 성공 시 다음 페이지로 이동
+            window.location.href = '/drawing';  // 성공 시 다음 페이지로 이동
 
         } catch (error) {
             console.error('Error:', error);

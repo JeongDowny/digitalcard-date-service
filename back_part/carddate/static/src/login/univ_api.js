@@ -51,7 +51,7 @@ document.querySelector('.prove__checkButton').addEventListener('click', async ()
     let checkIcon = document.querySelector('.check-icon');
     checkIcon.style.color = 'green';
     setTimeout(() => {
-      window.location.href = '../card_writting.html'; // 다음 페이지의 URL로 변경
+      window.location.href = '/form'; // 다음 페이지의 URL로 변경
     }, 2000); // 2초 후에 페이지 이동
   } else {
     alert("인증번호가 잘못되었습니다.");
@@ -79,7 +79,7 @@ document.querySelector('.email__checkButton').addEventListener('click', async ()
     let checkIcon = document.querySelector('.check-icon');
     checkIcon.style.color = 'green';
     setTimeout(() => {
-      window.location.href = '../card_writting.html'; // 다음 페이지의 URL로 변경
+      window.location.href = '/form'; // 다음 페이지의 URL로 변경
     }, 2000); // 2초 후에 페이지 이동
   } else {
     alert("인증되지 않은 이메일입니다.");

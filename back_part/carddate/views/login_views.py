@@ -12,6 +12,7 @@ bp = Blueprint('login', __name__, url_prefix='/login')
 def index():
     return render_template('login.html')
 
+'''
 # 학교명 확인
 @bp.route('/check_univ', methods=('POST', ))
 def check_univ():
@@ -131,3 +132,4 @@ def check_status(email):
         return result.get('success')
     else:
         return result.get('failed')
+'''

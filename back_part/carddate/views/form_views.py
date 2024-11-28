@@ -2,14 +2,17 @@ from flask import Blueprint, request, render_template, redirect, url_for, jsonif
 from ..models import Profile
 from .. import db
 from datetime import datetime
-bp = Blueprint('card', __name__, url_prefix='/card')
+bp = Blueprint('form', __name__, url_prefix='/form')
 
 
 @bp.route('/')
 def index():
+    '''
     if 'user_email' in session:
-        return render_template('card_form.html')
+        return render_template('form.html')
     return redirect(url_for('login.index'))
+    '''
+    return render_template('form.html')
 
 
 @bp.route('/submit', methods=['POST'])
