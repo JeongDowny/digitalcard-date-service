@@ -14,11 +14,6 @@ def index():
     '''
     return render_template('form.html')
 
-@bp.route('/drawing')  # 새로운 라우트 추가
-def drawing():
-    return render_template('card_drawing.html')
-
-
 @bp.route('/submit', methods=['POST'])
 def create():
     try:

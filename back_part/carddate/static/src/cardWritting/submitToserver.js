@@ -10,17 +10,17 @@ document.addEventListener('DOMContentLoaded', function() {
         // 폼 데이터 수집
         const inputs = document.querySelectorAll('.form_row input');
         const formData = {
-            gender: inputs[0].value || inputs[0].placeholder,    // 성별
-            name: inputs[1].value || inputs[1].placeholder,      // 이름
-            major: inputs[2].value || inputs[2].placeholder,     // 학과
-            age: inputs[3].value || inputs[3].placeholder,       // 학번(나이)
-            mbti: inputs[4].value || inputs[4].placeholder,      // MBTI
-            hobby: inputs[5].value || inputs[5].placeholder,     // 취미
-            contact: inputs[6].value || inputs[6].placeholder    // 연락처
+            gender: inputs[0].value,    // 성별
+            name: inputs[1].value,      // 이름
+            major: inputs[2].value,     // 학과
+            age: inputs[3].value,       // 학번(나이)
+            mbti: inputs[4].value,      // MBTI
+            hobby: inputs[5].value,     // 취미
+            contact: inputs[6].value,    // 연락처
         };
 
         try {
-            const response = await fetch('/card/submit', {
+            const response = await fetch('/form/submit', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json'
