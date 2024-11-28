@@ -15,11 +15,7 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
-    # 데이터베이스 테이블 생성
-    with app.app_context():
-        db.create_all()
-        print("Database tables created successfully")  # 디버깅용
-
+    
     from . import models
 
     # 블루프린트
