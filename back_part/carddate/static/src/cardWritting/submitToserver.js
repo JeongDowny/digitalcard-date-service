@@ -7,6 +7,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
 
+        // 이미지 이름과 색상 이름 추출 함수
+        function getImageName(src) {
+            const match = src.match(/\/([^\/]+)\.png$/);
+            if (match) {
+                return match[1].replace(/^\d+\./, ''); // 숫자와 점 제거
+            }
+            return 'cuteDog'; // 기본값
+        }
+
+        function getColorName(src) {
+            const match = src.match(/card_([^.]+)\.svg$/);
+            return match ? match[1] : 'gray'; // 기본값
+        }
+
+        // 현재 선택된 이미지와 색상 가져오기
+        const selectedImage = document.querySelector('.form_image').src;
+        const selectedColorButton = document.querySelector('.color:active, .color.selected') || document.querySelector('.color');
+        const selectedColor = selectedColorButton.dataset.src;
+
         // 폼 데이터 수집
         const inputs = document.querySelectorAll('.form_row input');
         const formData = {
@@ -16,7 +35,9 @@ document.addEventListener('DOMContentLoaded', function() {
             age: inputs[3].value || inputs[3].placeholder,       // 학번(나이)
             mbti: inputs[4].value || inputs[4].placeholder,      // MBTI
             hobby: inputs[5].value || inputs[5].placeholder,     // 취미
-            contact: inputs[6].value || inputs[6].placeholder    // 연락처
+            contact: inputs[6].value || inputs[6].placeholder,   // 연락처
+            image_data: getImageName(selectedImage),            // hamster, cat 등으로 저장
+            color: getColorName(selectedColor)                  // gray, pink 등으로 저장
         };
 
         try {

@@ -43,6 +43,8 @@ def create():
             mbti=data['mbti'],
             hobby=data['hobby'],
             contact=data['contact'],
+            image_data=data['image_data'],  # 이미지 경로 저장
+            color=data['color'],  # 색상 경로 저장
             create_date=datetime.now()
         )
 

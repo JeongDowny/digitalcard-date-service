@@ -9,4 +9,6 @@ class Profile(db.Model):
     mbti = db.Column(db.String(4), nullable=False)
     hobby = db.Column(db.String(25), nullable=True)
     contact = db.Column(db.String(25), nullable=False)
+    image_data = db.Column(db.String(100), nullable=False)  # 이미지 경로 저장
+    color = db.Column(db.String(100), nullable=False)  # 색상 경로 저장
     create_date = db.Column(db.DateTime(0), nullable=False)
