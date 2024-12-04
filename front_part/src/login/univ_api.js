@@ -8,9 +8,9 @@
 // }
 
 'use strict';
-
+import { LOGIN_API } from '../config.js'
 const API_BASE_URL = 'https://univcert.com/api/v1';
-const API_KEY = '0a88c9b6-497f-4236-820c-79866b6a4e08';
+const API_KEY = LOGIN_API;
 
 /**
  * 공통 Fetch 함수
