@@ -1,6 +1,5 @@
 'use strict'
 
-
 new TypeIt(".home__title", {
     speed: 50, // 타이핑 속도
     deleteSpeed: 25, // 지우는 속도
