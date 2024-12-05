@@ -2,6 +2,7 @@
 /shelf/
 /workspace.xml
 
+__pycached__/
 **/__pycache__/
 *.py[cod]
 *.pyc
