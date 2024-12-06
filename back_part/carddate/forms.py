@@ -10,3 +10,5 @@ class ProfileForm(FlaskForm):
     mbti = StringField('MBTI', validators=[DataRequired(), Length(min=4, max=4)])  # MBTI, 4글자
     hobby = StringField('취미', validators=[Length(max=25)])  # 취미, 선택사항
     contact = StringField('연락처', validators=[DataRequired(), Length(max=25)])  # 연락처
+    image_data = StringField('이미지', validators=[DataRequired()])
+    color = StringField('색상', validators=[DataRequired()])
