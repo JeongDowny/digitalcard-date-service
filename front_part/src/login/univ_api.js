@@ -126,7 +126,7 @@ document.querySelector('.prove__checkButton').addEventListener('click', async ()
                     }
 
             startSessionTimer(30); // 세션 타이머 30분 설정
-            setTimeout(() => window.location.href = './cardWritting.html', 2000);
+            setTimeout(() => window.location.href = './idealTypeSurvey.html', 2000);
         } else {
             alert(result.message || '인증번호가 잘못되었습니다.');
         }

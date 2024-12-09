@@ -9,8 +9,8 @@ document.addEventListener('DOMContentLoaded', function () {
     // 초기 상태: card1 표시
     currentCard.classList.add('active');
 
-    // 버튼 클릭 이벤트
-    button.addEventListener('click', () => {
+    // 버튼 클릭 및 터치 이벤트
+    const handleButtonClick = () => {
         // 현재 카드 초기화 (앞면으로 돌리고 숨김)
         currentCard.classList.remove('active');
         currentCard.style.transform = "rotateY(0deg)";
@@ -26,22 +26,34 @@ document.addEventListener('DOMContentLoaded', function () {
             currentCard.style.transform = "rotateY(180deg)";
             isFlipped = true; // 상태 업데이트
         }, 100); // 약간의 지연을 추가해 자연스러운 전환
+    };
+
+    button.addEventListener('click', handleButtonClick);
+    button.addEventListener('touchstart', (e) => {
+        e.preventDefault(); // 터치 이벤트 기본 동작 방지 (필수)
+        handleButtonClick();
     });
 
-    // 카드 클릭 이벤트
-    cards.forEach((card) => {
-        card.addEventListener('click', () => {
-            if (card.classList.contains('active')) {
-                if (isFlipped) {
-                    // 뒷면에서 앞면으로 회전
-                    card.style.transform = "rotateY(0deg)";
-                    isFlipped = false;
-                } else {
-                    // 앞면에서 뒷면으로 회전
-                    card.style.transform = "rotateY(180deg)";
-                    isFlipped = true;
-                }
+    // 카드 클릭 및 터치 이벤트
+    const handleCardFlip = (card) => {
+        if (card.classList.contains('active')) {
+            if (isFlipped) {
+                // 뒷면에서 앞면으로 회전
+                card.style.transform = "rotateY(0deg)";
+                isFlipped = false;
+            } else {
+                // 앞면에서 뒷면으로 회전
+                card.style.transform = "rotateY(180deg)";
+                isFlipped = true;
             }
+        }
+    };
+
+    cards.forEach((card) => {
+        card.addEventListener('click', () => handleCardFlip(card));
+        card.addEventListener('touchstart', (e) => {
+            e.preventDefault(); // 터치 이벤트 기본 동작 방지
+            handleCardFlip(card);
         });
     });
 });

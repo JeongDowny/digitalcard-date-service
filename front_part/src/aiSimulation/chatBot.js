@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", () => {
         setConfirmedCard(storedCard);
     } else {
         alert("확정한 카드가 존재하지 않습니다. 다시 뽑아주세요.");
-        window.location.href = "./Drawing.html";
+        // window.location.href = "./Drawing.html";
         
     }
 });
@@ -45,7 +45,7 @@ function setConfirmedCard(card) {
     personCard.querySelector("img").src = card.image;
     personCard.querySelector(".character-name").textContent = card.name;
     personCard.dataset.character = card.name;
-    personCard.dataset.description = `${card.age}살, ${card.mbti} 성격. ${card.hobbies}를 좋아합니다.`;
+    personCard.dataset.description = `${card.age}살, ${card.mbti} 성격. ${card.hobbies}을(를) 좋아합니다.`;
 
     // characterSettings에 추가
     characterSettings[card.name] = `You are ${card.name}, a ${card.age}-year-old individual with a ${card.mbti} personality. You enjoy ${card.hobbies}. Match the user's tone and respond naturally, avoiding overly formal expressions.`;
@@ -69,7 +69,7 @@ startChatButton.addEventListener("click", () => {
     }
     modal.style.display = "none";
     chatBox.style.display = "block";
-    messages.innerHTML = `<div class="bot">안녕하세요! 저는 ${selectedCharacter}입니다.</div>`;
+    messages.innerHTML = `<div class="bot">안녕하세요! 저는 ${selectedCharacter}입니다.<br>Hello! I'm ${selectedCharacter}.</div>`;
 });
 
 // 메시지 전송 이벤트

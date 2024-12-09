@@ -7,10 +7,14 @@
   --color-black: #000000;
   --color-DifferentGray: #888888;
   --color-deepGray: #333;
+  --color-light-pink: #ffe9f0;
+  --color-hot-pink: #ff85a1;
+  --color-soft-pink: #ffd9e8;
+  --color-deep-pink: #ff577f;
   --color-primary: var(--color-white);
   --color-primary-variant:var(--color-gray);
-  --color-accent: var(--color-coral);
-  --color-accent-variant: var(--color-peach);
+  --color-accent: var(--color-deep-pink);
+  --color-accent-variant: var(--color-hot-pink);
   --color-text-variant: var(--color-DifferentGray);
 }
 
@@ -47,7 +51,7 @@ body, html {
 /* 왼쪽 영역 */
 .left-wrap {
   flex: 1;
-  background: linear-gradient(to bottom, var(--color-coral), var(--color-peach));
+  background: linear-gradient(to bottom, var(--color-accent), var(--color-soft-pink));
   color: var(--color-white);
   display: flex;
   flex-direction: column;
@@ -58,14 +62,14 @@ body, html {
 }
 
 .logo {
-  width: 70px;
+  width: 100px;
   height: auto;
   margin-bottom: 20px;
   animation: spin 2s ease-in-out forwards;
 }
 
 .welcome-text {
-  font-size: 36px;
+  font-size: 3rem;
   font-weight: 900;
   line-height: 1.2;
 }
@@ -73,7 +77,7 @@ body, html {
 /* 오른쪽 영역 */
 .right-wrap {
   flex: 1;
-  background: var(--color-white);
+  background: var(--color-primary);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -83,9 +87,9 @@ body, html {
 .login-container {
   width: 100%;
   max-width: 380px;
-  background: var(--color-white);
+  background: var(--color-primary);
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 30px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
   text-align: center;
 }
@@ -94,19 +98,20 @@ body, html {
   font-size: 1.5rem;
   font-weight: bold;
   margin-bottom: 20px;
-  color: var(--color-coral);
+  color: var(--color-accent-variant);
 }
 
 .input-field {
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-bottom: 16px;
+  margin-bottom: 20px;
   width: 100%;
+  gap: 10px;
 }
 
 .input-field label {
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   color: var(--color-deepGray);
   margin-bottom: 8px;
 }
@@ -115,32 +120,34 @@ body, html {
   width: 95%;
   padding: 12px;
   border: 1px solid var(--color-deepGray);
-  border-radius: 8px;
+  border-radius: 30px;
   font-size: 0.9rem;
   transition: border-color 0.3s ease, box-shadow 0.3s ease;
   touch-action: manipulation;
 }
 
 .input-field input:focus {
-  border-color: var(--color-coral);
-  box-shadow: 0 0 8px rgba(255, 111, 97, 0.5);
+  border-color: var(--color-accent);
+  box-shadow: 0 0 8px var(--color-soft-pink);
   outline: none;
 }
 
 .btn {
-  background-color: var(--color-coral);
+  background-color: var(--color-accent-variant);
   color: var(--color-white);
   padding: 12px;
   border: none;
-  border-radius: 8px;
+  border-radius: 30px;
   font-size: 1rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.2s ease;
   touch-action: manipulation; 
+  width: 20%;
+  align-self: flex-end;
 }
 
 .btn:hover {
-  background-color: var(--color-peach);
+  background-color: var(--color-accent);
   transform: translateY(-2px);
 }
 
@@ -209,7 +216,8 @@ body, html {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    gap: 5px;
+    gap: 10px;
+    margin-bottom: 30px;
   }
   .input-field label {
     font-size: 1.2rem;
@@ -224,10 +232,11 @@ body, html {
   .btn {
     font-size: 0.9rem;
     padding: 10px;
-    width: 50%;
+    width: 30%;
+    align-self: auto;
   }
   .btn:active {
-    background-color: var(--color-peach);
+    background-color: var(--color-accent);
   }
 
   .check__desc {
@@ -235,6 +244,7 @@ body, html {
   }
 
   .check-icon {
-    font-size: 1rem;
+    font-size: 1.5rem;
   }
 }
+

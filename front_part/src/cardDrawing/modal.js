@@ -1,5 +1,3 @@
-'use strict';
-
 document.addEventListener("DOMContentLoaded", () => {
     const randomButton = document.querySelector(".draw_randomButton");
     const recommendButton = document.querySelector(".draw_recommendButton");
@@ -7,6 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const modalOverlay = document.querySelector(".modal-overlay");
     const drawButton = document.querySelector(".drawButton");
     const cardStrip = document.querySelector(".modal_card-container");
+    const modalLoading = document.querySelector(".modal_loading");
 
     const cardImages = [
         "./assets/card_gray.svg",
@@ -29,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
     let currentAction = "";
     let animationStarted = false;
     let animationCompleted = false;
-
+    let loadingInterval;
 
     function lockScroll() {
         document.body.style.overflow = "hidden"; 
@@ -41,12 +40,27 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.height = "";   
     }
 
+    function startLoadingAnimation() {
+        let dots = 0;
+        modalLoading.textContent = "뽑기중";
+        loadingInterval = setInterval(() => {
+            dots = (dots + 1) % 4; 
+            modalLoading.textContent = "뽑기중" + ".".repeat(dots);
+        }, 500);
+    }
+
+    function stopLoadingAnimation() {
+        clearInterval(loadingInterval);
+        modalLoading.textContent = "뽑기중...";
+    }
+
     function showModal(action) {
         modal.classList.add("active");
         modalOverlay.classList.add("active");
         lockScroll(); 
         currentAction = action;
         setupCardStrip(); 
+        startLoadingAnimation(); // 로딩 애니메이션 시작
     }
 
     function setupCardStrip() {
@@ -104,6 +118,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function stopAnimation() {
         animationStarted = false;
         animationCompleted = true;
+        stopLoadingAnimation(); // 로딩 애니메이션 중지
 
         const currentTranslateY = getComputedStyle(stripContainer).transform.match(/matrix.*\((.+)\)/);
         let translateY = currentTranslateY ? parseFloat(currentTranslateY[1].split(", ")[5]) : 0;

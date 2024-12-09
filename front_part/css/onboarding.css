@@ -5,11 +5,16 @@
     --color-gray: #F5F5F5;
     --color-white: #ffffff;
     --color-black: #000000;
+    --color-yellow: #feffbd;
     --color-DifferentGray: #888888;
+    --color-light-pink: #ffe9f0;
+    --color-hot-pink: #ff85a1;
+    --color-soft-pink: #ffd9e8;
+    --color-deep-pink: #ff577f;
     --color-primary: var(--color-white);
     --color-primary-variant:var(--color-gray);
-    --color-accent: var(--color-coral);
-    --color-accent-variant: var(--color-peach);
+    --color-accent: var(--color-deep-pink);
+    --color-accent-variant: var(--color-hot-pink);
     --color-text-variant: var(--color-DifferentGray);
 }
 
@@ -35,6 +40,37 @@
     100% {
         color: var(--color-accent-variant)
     }
+}
+
+@keyframes glow {
+  0% {
+      box-shadow: 0 0 20px 5px rgba(255, 133, 161, 0.8), 
+                  0 0 30px 5px rgba(255, 133, 161, 0.6), 
+                  0 0 30px 8px rgba(255, 133, 161, 0.4);
+  }
+  50% {
+      box-shadow: 0 0 15px 5px rgba(255, 133, 161, 0.9), 
+                  0 0 25px 10px rgba(255, 133, 161, 0.7), 
+                  0 0 35px 15px rgba(255, 133, 161, 0.5);
+  }
+  100% {
+      box-shadow: 0 0 20px 8px rgba(255, 133, 161, 1), 
+                  0 0 30px 15px rgba(255, 133, 161, 0.8), 
+                  0 0 40px 23px rgba(255, 133, 161, 0.6);
+  }
+}
+
+
+@keyframes flicker {
+  0%, 100% {
+      opacity: 1;
+  }
+  50% {
+      opacity: 0.9;
+  }
+  75% {
+      opacity: 0.95;
+  }
 }
 
 /* common */
@@ -106,7 +142,7 @@ html {
   }
 
 .header__title{
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--color-black);
     text-align: center;
   }
@@ -158,7 +194,7 @@ html {
 #home{
     width: 100%;
     background-color: var(--color-primary);
-    margin-top: 50px;
+    padding-top: 50px;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -174,7 +210,7 @@ html {
   }
 
 .homeImg__Logo{
-    margin-top: 150px;
+    margin-top: 100px;
     width: 300px;
     height: 300px;
     @media (max-width: 834px){
@@ -227,13 +263,28 @@ html {
     border-radius: 5px;
     padding: 5px;
     color: var(--color-white);
+    transition: all 0.2s ease-in-out;
+  }
+
+  .home__contact:hover{
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent-variant);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  }
+
+  .home__nextStep:hover{
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent-variant);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
   }
 
 .home__nextStep:hover::after{
     display: block;
     content: "Go AD section"; 
     position: absolute;
-    left: 200px; 
+    right: 20px; 
     transform: translateX(110%); 
     height: 15px;
     width: 100px; 
@@ -248,19 +299,23 @@ html {
 
 /* ad */
 #ad{
+    padding-top: 50px;
     width: 100%;
     background-color: var(--color-primary-variant);
     padding-bottom: 100px;
     @media (max-width: 834px){
       padding: 0;
+      background-color: var(--color-primary);
     }
   }
 .ad-container{
+    margin-top: 200px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 20px;
     @media (max-width: 834px){
+      margin-top: 0;
       gap: 10px;
       flex-direction: column;    
     }
@@ -280,6 +335,7 @@ html {
     line-height: 30px;
     @media (max-width: 834px){
       text-align: center;
+      max-height: 500px;
     }
 }
 
@@ -346,9 +402,18 @@ html {
     border-radius: 5px;
     padding: 5px;
     color: var(--color-white); 
+    transition: all 0.2s ease-in-out;
     @media(max-width: 834px){
       display: none;
     } 
+  }
+
+  .ad__nextStep:hover{
+    background-color: var(--color-accent);
+    border: 1px solid var(--color-accent-variant);
+    position: relative;
+    top: -2px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
   }
 
 .ad__nextStep:hover::after{
@@ -360,7 +425,7 @@ html {
     transform: translateX(110%); 
     width: 100px; 
     background-color: #333; 
-    color: #fff; 
+    color: var(--color-white); 
     padding: 10px; 
     border-radius: 5px; 
     font-size: 12px;
@@ -370,11 +435,15 @@ html {
 
 /* steps */
 #step1{
-    margin-bottom: 70px;
+    margin: 150px 0;
     width: 100%;
     background-color: var(--color-primary);
     @media (max-width: 834px) {
-      margin-bottom: 0px;
+      max-height: 800px;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 }
 
@@ -396,11 +465,27 @@ html {
 }
 
 .step1-container, .step2-container, .step3-container{
-    margin: 0px;
+    margin: 0;
     display: flex;
     justify-content: space-between;
     align-items: center;
     gap: 30px;
+}
+
+.step2-container {
+  margin: 100px 0;
+}
+
+.step3-container{
+  margin-top: 50px;
+}
+
+.step1-container {
+  margin-top: 50px;
+  @media (max-width: 834px) {
+    margin-top: 0;
+    line-height: 35px;
+  }
 }
 
 .step__text-container{
@@ -428,9 +513,10 @@ html {
     display: block;
     text-align: center;
     white-space: pre-wrap;
-    content: "재학인증, 카드작성, 카드뽑기\A 3스텝으로 서비스 이용!";
+    content: "재학인증, 카드작성, 카드뽑기\A 3step으로 서비스 이용!";
     font-size: 2rem;
     padding-top: 20px;
+    max-height: 50px;
   }
 }
 
@@ -490,7 +576,7 @@ html {
 }
 
 .step3__content .step__title{
-    margin-top: 100px;
+    margin-top: 40px;
     @media (max-width: 834px){
       margin-top: 0;
     }
@@ -504,9 +590,17 @@ html {
     color: var(--color-white);
     position: relative;
     right: 280px;
+    transition: all 0.2s ease-in-out;
     @media (max-width: 834px){
       display: none;
     }
+}
+
+.nextStepButton1:hover {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent-variant);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .nextStepButton1:hover::after{
@@ -515,6 +609,7 @@ html {
     content: "Go step2 section"; 
     position: absolute;
     right: 20px;
+    bottom: 20px;
     transform: translateX(110%); 
     width: 150px; 
     background-color: #333; 
@@ -534,9 +629,17 @@ html {
     color: var(--color-white);
     position: relative;
     left: 270px;
+    transition: all 0.2s ease-in-out;
     @media (max-width: 834px){
       display: none;
     }
+}
+
+.nextStepButton2:hover {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent-variant);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .nextStepButton2:hover::after{
@@ -544,7 +647,8 @@ html {
     text-align: center;
     content: "Go step3 section"; 
     position: absolute;
-    right: 230px; 
+    right: 230px;
+    bottom: 20px; 
     transform: translateX(110%); 
     width: 150px; 
     background-color: #333; 
@@ -561,13 +665,21 @@ html {
     border-radius: 5px;
     padding: 5px;
     color: var(--color-white);
-    margin-bottom: 100px;
+    margin-bottom: 70px;
     position: relative;
     right: 285px;
     top: -15px;
+    transition: all 0.2s ease-in-out;
     @media (max-width: 834px){
       display: none;
     }
+}
+
+.nextStepButton3:hover {
+  background-color: var(--color-accent);
+  border: 1px solid var(--color-accent-variant);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
 }
 
 .nextStepButton3:hover::after{
@@ -576,6 +688,7 @@ html {
     content: "Go start section"; 
     position: absolute;
     right: 20px; 
+    bottom: 20px;
     transform: translateX(110%); 
     width: 100px; 
     background-color: #333; 
@@ -589,7 +702,11 @@ html {
 #start{
     width: 100%;
     background-color: var(--color-primary-variant);
-    padding: 50px;
+    padding: 170px;
+    @media (max-width: 834px) {
+      padding: 30px;
+      background-color: var(--color-primary);
+    }
 }
 
 .start-container{
@@ -622,7 +739,7 @@ html {
   display: none; 
   align-items: center;
   justify-content: center;
-  border-radius: 8px;
+  border-radius: 10px;
   background-color: var(--color-white); 
   box-shadow: 4px 4px 12px rgba(0, 0, 0, 0.3);
   @media (max-width: 834px){
@@ -651,16 +768,20 @@ html {
   background-size: cover;
   background-position: center;
   transform: rotateY(0deg); 
+  border-radius: 10px;
 }
 
 .start_card-back {
+  text-align: center;
   transform: rotateY(180deg);
-  background-color: var(--color-yello);
+  background-color: var(--color-white);
   color: var(--color-accent);
   font-size: 16px;
   font-weight: bold;
   padding: 20px;
   box-sizing: border-box;
+  border-radius: 10px;
+
 }
 
 .start_cardButton {
@@ -675,18 +796,29 @@ html {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   transition: all 0.3s ease;
   text-align: center;
+  @media (max-width: 834px) {
+    /* 모바일환경에서 클릭되지 않는 오류 수정 */
+    z-index: 50;
+    pointer-events: auto; 
+  }
 }
 
 .start_cardButton:hover {
-  color: var(--color-primary);
-  background-color: yellowgreen; 
+  background-color: var(--color-accent-variant); 
+  color: var(--color-white);
   transform: translateY(-3px); 
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  @media (max-width: 834px) {
+    background-color: none;
+    color: none;
+    transform: none;
+    box-shadow: none;
+  }
 }
 
 .start_cardButton:active {
   transform: translateY(0); 
-  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2); 
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .start_nextStep-container {
@@ -703,33 +835,69 @@ html {
   -2px -2px 5px rgba(255, 255, 255, 0.3);
   font-style: italic;
   @media (max-width: 834px){
+    visibility: hidden;
+  }
+}
+
+@media (max-width: 834px) {
+  .start_nextStep_desc::before {
+    visibility: visible;
+    display: block;
+    text-align: center;
+    white-space: pre-wrap;
+    content: "자.. 이제 떠나볼까요..\A운명의 상대를 만나러!";
     font-size: 1.5rem;
+    padding-top: 20px;
+    padding: 10px;
   }
 }
 
 .start_nextStep {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   transition: all 0.3s ease;
   border-radius: 50%;
-}
-
-.start_nextStep img {
   width: 300px;
   height: 300px;
-  object-fit: cover;
+  font-size: 3rem;
+  color: var(--color-accent);
+  transform: translateY(-3px); 
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  font-weight: bold;
 }
 
 .start_nextStep:hover {
-  transform: translateY(-3px); 
-  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
+  animation: glow 2s infinite alternate, flicker 0.1s infinite;
   @media (max-width: 834px) {
-    transform: none;
+    animation: none;
   }
 }
+
+.start_nextStep:active{
+  transform: none;
+  box-shadow: none;
+}
+
+@media (max-width: 834px) {
+  .start_nextStep{
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+  }
+
+  .start_nextStep:active{
+    transform: none;
+    box-shadow: none;
+  }
+}
+
+
 
 #arrow-up {
   position: fixed;
   bottom: 50px;
-  right: 30px;
+  right: 20px;
   display: none;
   background-color: var(--color-accent-variant);
   color: var(--color-primary);
@@ -747,9 +915,8 @@ html {
   opacity: 0.8;     
   @media (max-width: 834px) {
     font-size: 15px;
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
+    width: 50px;
+    height: 50px;
   }     
 }
 
@@ -761,15 +928,24 @@ html {
   background-color: var(--color-accent);
   box-shadow: 0 12px 20px rgba(0, 0, 0, 0.2), 0 6px 8px rgba(0, 0, 0, 0.15);
   transform: translateY(-3px);
+  @media (max-width: 834px) {
+    background-color: none;
+    box-shadow: none;
+    transform: none;
+  }
 }
 #arrow-up:active {
-  
   transform: translateY(1px);
   box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15), 0 2px 4px rgba(0, 0, 0, 0.1);
+  @media (max-width: 834px) {
+    background-color: var(--color-accent);
+    transform: translateY(3px);
+  }
 }
 
 /* contact */
 #contact{
+  background-color: var(--color-primary);
   color: var(--color-text-variant);
 }
 .contact-container{
@@ -812,11 +988,17 @@ html {
 
 .contact__SNS-container a:hover{
   color: var(--color-accent);
-  @media (max-width: 834px) {
+  @media (max-width: 834px){
     color: none;
   }
 }
 
+@media (max-width: 834px) {
+  .contact__SNS-container a:active{
+      color: var(--color-accent);
+  }
+}
+           
 .contact_img{
   object-fit: cover;
   width: 120px;

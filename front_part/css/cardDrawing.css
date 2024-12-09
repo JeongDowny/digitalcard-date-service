@@ -6,10 +6,14 @@
     --color-white: #ffffff;
     --color-black: #000000;
     --color-DifferentGray: #888888;
+    --color-light-pink: #ffe9f0;
+    --color-hot-pink: #ff85a1;
+    --color-soft-pink: #ffd9e8;
+    --color-deep-pink: #ff577f;
     --color-primary: var(--color-white);
     --color-primary-variant:var(--color-gray);
-    --color-accent: var(--color-coral);
-    --color-accent-variant: var(--color-peach);
+    --color-accent: var(--color-deep-pink);
+    --color-accent-variant: var(--color-hot-pink);
     --color-text-variant: var(--color-DifferentGray);
 }
 
@@ -109,7 +113,7 @@
   }
 
   .header__title{
-    font-size: 1rem;
+    font-size: 1.2rem;
     color: var(--color-black);
     text-align: center;
   }
@@ -140,7 +144,7 @@
     margin: 100px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 1);
     gap: 30px;
-    transition: all 1s ease-in-out;
+    transition: all 0.5s ease-in-out;
     @media (max-width: 834px) {
         margin: 100px auto; 
         max-width: 100%;
@@ -161,13 +165,21 @@
     }
 }
 
+@media (max-width: 834px) {
+  section:hover{
+    transform: scale(1.15);
+    border-color: rgba(255, 255, 0, 1); 
+    animation: glow-border 1s infinite alternate; 
+  }
+}
+
   .draw-random{
-    border: 20px solid var(--color-coral);
+    border: 20px solid var(--color-accent);
     border-style: solid;
   }
 
   .draw-recommend{
-    border: 20px solid var(--color-coral);
+    border: 20px solid var(--color-accent);
     border-style: solid;
   }
 
@@ -184,7 +196,7 @@
   .draw_desc-ran{
     text-align: center;
     font-size: 1.2rem;
-    color: red;
+    color: #b22222;
     font-weight: bold;
     @media (max-width: 834px) {
       font-size: 1rem;
@@ -194,7 +206,7 @@
   .draw_desc-rec{
     text-align: center;
     font-size: 1.2rem;
-    color: blue;
+    color: #1E90FF ;
     font-weight: bold;
     @media (max-width: 834px) {
       font-size: 1rem;
@@ -215,21 +227,20 @@
   }
 
   .draw_randomButton{
-    border-color: red;
-    color: red;
+    border-color: #b22222;
+    color: #b22222;
   }
 
   .draw_recommendButton{
-    border-color: blue;
-    color: blue;
+    border-color: #1E90FF ;
+    color: #1E90FF ;
   }
 
   button:hover {
     transform: translateY(-2px); 
     box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3); 
     @media (max-width: 834px){
-      transform: none;
-      box-shadow: none;
+      transform: translateY(2px);
     }
   }
 
@@ -270,6 +281,10 @@
     }
 }
 
+.modal_loading{
+  color: var(--color-white);
+}
+
 .card-strip {
     position: absolute;
     width: 100%;
@@ -289,12 +304,22 @@
     margin-top: 20px; 
     padding: 10px 20px;
     font-size: 16px;
-    color: var(--color-black);
-    background-color: var(--color-primary);
+    color: var(--color-white);
+    background-color: var(--color-accent-variant);
     border: none;
-    border-radius: 5px;
+    border-radius: 30px;
     cursor: pointer;
     transition: background-color 0.3s;
+}
+
+.drawButton:hover{
+  background-color: var(--color-accent);
+}
+
+@media (max-width: 834px) {
+  .drawButton:active{
+    background-color: var(--color-accent);
+  }
 }
 
 .modal-overlay {
@@ -360,6 +385,12 @@
       color: none;
     }
   }
+
+  @media (max-width: 834px) {
+    .contact__SNS-container a:active{
+        color: var(--color-accent);
+    }
+  }
   
   .contact_img{
     object-fit: cover;
@@ -371,10 +402,3 @@
     }
   }
   
-    @media(max-width: 834px){
-    button:active{
-      background-color: gold;
-      color: var(--color-white);
-      border: 2px solid var(--color-yellow);
-    }
-  }
